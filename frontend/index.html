@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jackpot Protocol - The Final Countdown</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="background-animation"></div>
+    <div class="container">
+        <header>
+            <h1>JACKPOT PROTOCOL</h1>
+            <p>THE GLOBAL ON-CHAIN LOTTERY</p>
+        </header>
+        <main>
+            <div class="countdown-container">
+                <p>NEXT DRAW IN:</p>
+                <div id="countdown-timer">
+                    <span id="days">00</span>d : 
+                    <span id="hours">00</span>h : 
+                    <span id="minutes">00</span>m : 
+                    <span id="seconds">00</span>s
+                </div>
+            </div>
+            <div class="jackpot-container">
+                <p>CURRENT JACKPOT</p>
+                <h2 id="jackpot-amount">$1,000,000</h2>
+            </div>
+            <button id="buy-ticket-btn" class="action-button">
+                GET YOUR SHOT AT THE JACKPOT
+            </button>
+        </main>
+        <footer>
+            <div class="info-box">
+                <p>TICKET PRICE</p>
+                <h3>$1 USDC</h3>
+            </div>
+            <div class="info-box">
+                <p>TICKETS SOLD</p>
+                <h3 id="tickets-sold">1,234,567</h3>
+            </div>
+            <div class="info-box">
+                <p>DRAW FAIRNESS</p>
+                <h3>PROVABLY FAIR</h3>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
