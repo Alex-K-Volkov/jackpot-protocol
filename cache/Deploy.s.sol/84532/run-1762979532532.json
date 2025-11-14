@@ -1,0 +1,13 @@
+{
+  "transactions": [
+    {
+      "rpc": "https://base-sepolia.infura.io/v3/2e4b5e0d87ae4f1dbe9c4dae431c52c4"
+    },
+    {
+      "rpc": "https://base-sepolia.infura.io/v3/2e4b5e0d87ae4f1dbe9c4dae431c52c4"
+    },
+    {
+      "rpc": "https://base-sepolia.infura.io/v3/2e4b5e0d87ae4f1dbe9c4dae431c52c4"
+    }
+  ]
+}
