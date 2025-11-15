@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jackpot Protocol - The Global, Provably Fair Lottery</title>
+    <!-- This path is relative, it looks for style.css in the same folder -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -49,7 +50,10 @@
         </footer>
     </div>
 
-    <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js"></script>
+    <!-- CRITICAL CHANGE: This now points to the local ethers.js file you created -->
+    <script src="ethers-5.7.2.umd.min.js"></script>
+    
+    <!-- This points to our local script.js file -->
     <script src="script.js"></script>
 </body>
 </html>
