@@ -62,10 +62,6 @@ async function connectAndBuy() {
     try {
         const accounts = await provider.send("eth_requestAccounts", []);
         await setupDApp(accounts[0]);
-        
-        // This logic is now handled by the onclick assignment in setupDApp
-        // so clicking "CONNECT" won't auto-buy.
-
     } catch (error) {
         console.error("Connection failed:", error);
         updateStatus("Wallet connection failed.", true);
@@ -78,9 +74,7 @@ async function setupDApp(account) {
         lotteryContract = new ethers.Contract(JACKPOT_LOTTERY_ADDRESS, LOTTERY_ABI, signer);
         usdcContract = new ethers.Contract(USDC_ADDRESS, USDC_ABI, signer);
 
-        // Check network
         const network = await provider.getNetwork();
-        // Base Sepolia Chain ID is 84532
         if (network.chainId !== 84532) {
              updateStatus(`Please switch to Base Sepolia network. You are on chain ${network.chainId}.`, true);
              actionBtn.disabled = true;
@@ -138,24 +132,23 @@ async function handleBuyTicket() {
             updateStatus("Approval found. Buying ticket...", false);
         }
 
-        const buyTx = await lotteryContract.buyTicket({ gasLimit: 300000 }); // Added gas limit for safety
+        const buyTx = await lotteryContract.buyTicket({ gasLimit: 300000 });
         await buyTx.wait();
         
-        updateStatus("Ticket purchased successfully!", false, 5000); // Show success for 5s then reset
+        updateStatus("Ticket purchased successfully!", false, 5000);
         alert("Congratulations! Your ticket has been purchased successfully.");
 
     } catch (error) {
         console.error("Transaction failed:", error);
         let errorMessage = "Transaction failed. Check console for details.";
-        if (error.data && error.data.message) { // For contract reverts
+        if (error.data && error.data.message) {
             errorMessage = `Transaction failed: ${error.data.message}`;
-        } else if (error.reason) { // For other ethers errors
+        } else if (error.reason) {
             errorMessage = `Transaction failed: ${error.reason}`;
         }
         updateStatus(errorMessage, true);
         alert(errorMessage);
     } finally {
-        // Refresh the DApp state after the transaction attempt
         await setupDApp(await signer.getAddress()); 
     }
 }
@@ -181,6 +174,6 @@ function startVisualUpdates() {
         jackpotAmountEl.innerText = `$${jackpot.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
     }, 2500);
 
-    let tickets = 0; // In a real app, this should be fetched from the contract
+    let tickets = 0;
     ticketsSoldEl.innerText = tickets;
 }
