@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Litepaper - Jackpot Protocol</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-section { text-align: left; max-width: 700px; margin: 2rem auto; line-height: 1.7; }
+        .content-section h2 { text-align: left; border-bottom: 1px solid var(--primary-color); padding-bottom: 10px; }
+        .content-section h3 { color: var(--accent-color); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="main-title">JACKPOT PROTOCOL</h1>
+            <p>LITEPAPER V1.0</p>
+        </header>
+
+        <section class="content-section">
+            <h2>1. The Problem: A Crisis of Trust</h2>
+            <p>The global lottery industry is a $300 billion market plagued by inefficiency, a lack of transparency, and geographical restrictions. Players have no way to verify the fairness of a draw, and participation is often limited to one's own country. Trust is assumed, not earned.</p>
+
+            <h2>2. The Solution: Provably-Fair & Borderless</h2>
+            <p>Jackpot Protocol leverages the power of blockchain to create a lottery system that is mathematically fair and globally accessible. Our entire process, from ticket purchase to prize distribution, is managed by an immutable smart contract deployed on the Base network.</p>
+            <ul>
+                <li><strong>Total Transparency:</strong> Every transaction is a public record.</li>
+                <li><strong>Provable Fairness:</strong> We use Chainlink's Verifiable Random Function (VRF) to generate tamper-proof winning numbers. The process is auditable by anyone.</li>
+                <li><strong>Global Access:</strong> Anyone with a wallet can participate, breaking down geographical barriers.</li>
+            </ul>
+
+            <h2>3. How It Works: The Core Mechanics</h2>
+            <p>The process is simple and elegant:</p>
+            <ol>
+                <li><strong>Lottery Round Opens:</strong> A new lottery round is initiated on the smart contract.</li>
+                <li><strong>Ticket Purchase:</strong> Users purchase tickets for $1 USDC. Each ticket is minted as a unique NFT in the user's wallet.</li>
+                <li><strong>Draw & Prize Distribution:</strong> After the round ends, the smart contract requests a random number from the Chainlink VRF. The contract then automatically identifies the winning ticket and transfers the entire prize pool to the winner's address. The process is autonomous and requires no human intervention.</li>
+            </ol>
+            
+            <h2>4. Roadmap: Beyond the Lottery</h2>
+            <p>The lottery is just our 'Genesis' application. Our long-term vision is to build a comprehensive, decentralized gaming ecosystem—an "on-chain Las Vegas".</p>
+            <ul>
+                <li><strong>Phase 1:</strong> Launch the flagship Lottery DApp (current stage).</li>
+                <li><strong>Phase 2:</strong> Introduce the Jackpot Token (JPT) and create a Play-to-Earn economy.</li>
+                <li>**Phase 3:** Expand the platform with more games: Poker, Prediction Markets, and other skill-based games, all powered by JPT.</li>
+            </ul>
+        </section>
+        <div style="text-align: center; margin-top: 2rem;">
+             <a href="index.html" class="action-button" style="text-decoration: none;">BACK TO DAPP</a>
+        </div>
+    </div>
+</body>
+</html>
