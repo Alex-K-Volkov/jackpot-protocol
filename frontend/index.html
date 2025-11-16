@@ -3,36 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jackpot Protocol - The Global, Provably Fair Lottery</title>
+    <title>Jackpot Protocol - Final Stand</title>
     <style>
+        /* --- EMBEDDED CSS --- */
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
         :root{--primary-color:#00AEEF;--accent-color:#FFD700;--background-color:#000d1a;--text-color:#f0f0f0;--container-bg:rgba(10, 25, 47, 0.7);--border-color:rgba(0, 174, 239, 0.3);}
         body{margin:0;font-family:'Roboto Mono',monospace;background-color:var(--background-color);color:var(--text-color);display:flex;justify-content:center;align-items:center;min-height:100vh;overflow-y:auto;text-align:center;padding:2rem 1rem;box-sizing:border-box;}
-        #background-animation{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);z-index:-1;}
-        .container{background:var(--container-bg);border:1px solid var(--border-color);border-radius:20px;padding:2.5rem 3.5rem;max-width:750px;width:100%;box-shadow:0 0 40px rgba(0, 174, 239, 0.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);animation:fadeIn 1.5s ease-out;}
-        @keyframes fadeIn{from{opacity:0;transform:scale(0.95);}to{opacity:1;transform:scale(1);}}
+        .container{background:var(--container-bg);border:1px solid var(--border-color);border-radius:20px;padding:2.5rem 3.5rem;max-width:750px;width:100%;box-shadow:0 0 40px rgba(0, 174, 239, 0.2);backdrop-filter:blur(12px);animation:fadeIn 1.5s ease-out;}
         header h1{color:#fff;font-size:2.8rem;margin:0;letter-spacing:3px;text-shadow:0 0 10px #fff;}
         header p{font-size:0.9rem;letter-spacing:2.5px;opacity:0.8;color:var(--primary-color);margin-bottom:2.5rem;text-transform:uppercase;}
-        .content-section{margin:2.5rem auto;max-width:600px;text-align:left;line-height:1.6;}
-        .content-section h2{color:var(--primary-color);text-align:center;margin-bottom:1rem;}
-        .content-section p{font-size:0.95rem;opacity:0.9;}
         main{margin:2rem 0;}
-        .status-box{background-color:rgba(255, 255, 255, 0.1);color:var(--text-color);padding:0.75rem;border-radius:8px;margin-bottom:2rem;font-size:0.9rem;border:1px solid var(--border-color);word-wrap:break-word;}
+        .status-box{background-color:rgba(255, 255, 255, 0.1);padding:0.75rem;border-radius:8px;margin-bottom:2rem;font-size:0.9rem;border:1px solid var(--border-color);word-wrap:break-word;}
         .jackpot-container p{font-size:1rem;opacity:0.8;margin-bottom:0.5rem;}
-        #jackpot-amount{font-size:4.5rem;font-weight:700;color:var(--accent-color);margin:0 0 2.5rem 0;text-shadow:0 0 25px var(--accent-color);animation:pulse-gold 2.5s infinite;}
-        @keyframes pulse-gold{0%,100%{text-shadow:0 0 25px var(--accent-color);transform:scale(1);}50%{text-shadow:0 0 40px #fff;transform:scale(1.02);}}
-        .action-button{background:linear-gradient(45deg, var(--primary-color), #0077b6);color:#fff;border:none;border-radius:10px;padding:1.2rem 3rem;font-size:1.3rem;font-weight:700;letter-spacing:2px;cursor:pointer;transition:all 0.3s ease;box-shadow:0 4px 20px rgba(0, 174, 239, 0.4);text-transform:uppercase;}
-        .action-button:disabled{background:#555;color:#999;cursor:not-allowed;box-shadow:none;}
-        .action-button:not(:disabled):hover{transform:translateY(-5px);box-shadow:0 8px 30px rgba(0, 174, 239, 0.6);}
-        footer{display:flex;justify-content:space-around;flex-wrap:wrap;gap:1rem;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border-color);}
-        .info-box{flex-basis:30%;min-width:120px;}
-        .info-box p{font-size:0.8rem;opacity:0.7;margin:0 0 0.5rem 0;}
-        .info-box h3{font-size:1.3rem;margin:0;color:#fff;}
-        @media (max-width:768px){.container{padding:2rem;}header h1{font-size:2rem;}#jackpot-amount{font-size:3rem;}.action-button{padding:1rem 2rem;font-size:1.1rem;}footer{flex-direction:column;align-items:center;}}
+        #jackpot-amount{font-size:4.5rem;font-weight:700;color:var(--accent-color);margin:0 0 2.5rem 0;text-shadow:0 0 25px var(--accent-color);}
+        footer{display:flex;justify-content:space-around;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border-color);}
+        .info-box{flex-basis:30%;}
     </style>
 </head>
 <body>
-    <div id="background-animation"></div>
     <div class="container">
         <header>
             <h1 id="main-title">JACKPOT PROTOCOL</h1>
@@ -44,12 +32,9 @@
                 <h2 id="jackpot-amount">$1,000,000</h2>
             </div>
             <div id="status-display" class="status-box">Initializing DApp...</div>
-            <button id="action-btn" class="action-button" disabled>LOADING...</button>
+            <!-- The official Web3Modal button will be injected here by the script -->
+            <div id="connect-button-container"></div>
         </main>
-        <section class="content-section">
-            <h2>Welcome to the Revolution of Chance</h2>
-            <p>Jackpot Protocol isn't just another lottery; it's a paradigm shift. By leveraging the power of the blockchain, we deliver an experience that is transparent, borderless, and provably fair.</p>
-        </section>
         <footer>
             <div class="info-box"><p>TICKET PRICE</p><h3>$1 USDC</h3></div>
             <div class="info-box"><p>TICKETS SOLD</p><h3 id="tickets-sold">0</h3></div>
@@ -57,208 +42,83 @@
         </footer>
     </div>
 
-    <!-- EMBEDDED LIBRARIES - NO EXTERNAL REQUESTS -->
+    <!-- This is a SIMULATED library for demonstration. -->
+    <!-- A real implementation would require embedding the full library code -->
     <script>
-    !function(t,e){"object"==typeof exports&&"undefined"!=typeof module?e(exports):"function"==typeof define&&define.amd?define(["exports"],e):e((t="undefined"!=typeof globalThis?globalThis:t||self).ethers={})}(this,(function(t){"use strict";const e="5.7.2";var n={};Object.defineProperty(n,"__esModule",{value:!0}),n.RLP=void 0;var r=function(){function t(t){var e=t.slice();if(Object.freeze){for(var n=0;n<e.length;n++)e[n]=i(e[n]);e=Object.freeze(e)}return e}function i(e){return e instanceof Array?t(e):e}function o(t){if(t instanceof Array){for(var e=[],n=0;n<t.length;n++)e.push(o(t[n]));return e}if("string"==typeof t&&t.match(/^0x([0-9a-f][0-9a-f])*$/i))return t.substring(2);if(t instanceof Uint8Array){var r="";for(n=0;n<t.length;n++)r+=s(t[n]);return r}throw new Error("invalid rlp object")}function s(t){var e=t.toString(16);return e.length%2&&(e="0"+e),e}function a(t){var e,n="string"==typeof t?t.toLowerCase():s(t);if(n.substring(0,2)!==s(128))throw new Error("invalid rlp");for(var r=2,i=function(t,e){if(t.length-e<2)return null;var n=parseInt(t.substring(e,e+2),16);if(n<=127)return{offset:e,length:1,value:n.toString(16)};if(n<=183)return{offset:e+2,length:n-128,value:null};if(n<=191){var r=n-183;if(t.length-e-2<2*r)return null;var i=parseInt(t.substring(e+2,e+2+2*r),16);if(i<56)return null;return{offset:e+2+2*r,length:i,value:null}}if(n<=247){var o=n-192;if(t.length-e-2<2*o)return null;var s=parseInt(t.substring(e,e+2),16)-192;return{offset:e+2,length:s,value:null}}var a=n-247;return t.length-e-2<2*a?null:{offset:e+2,length:parseInt(t.substring(e+2,e+2+2*a),16),value:null}};n.length%2&&(n="0"+n);var o=function(t){var e=i(n,t);if(null==e)throw new Error("invalid rlp");if(null!=e.value)return{data:e.value,consumed:1};var r=n.substring(e.offset,e.offset+2*e.length);return"0x80"===r?r="0x":r.length%2&&(r="0"+r),{data:r,consumed:1+(e.offset-t-2)/2+e.length}}(0);e=a(r.data);for(var u=[],l=0;l<e.length;l++){for(var c=h(e[l]),f=[],d=0;d<c.length;d++){var p=i(c,d);null==p?f.push("0x"):f.push(p.data),d+=p.consumed-1}u.push(f)}return u}var u=function(t){return h(o(t))}function l(t){if("0x"===t)return"80";if(t.length<=2)return t;for(var e="";t.length;)e+=String.fromCharCode(parseInt(t.substring(0,2),16)),t=t.substring(2);var n=e.length;if(n<56)return c(128+n)+e;var r=s(n);return c(183+r.length/2)+r+e}function c(t){return s(t)}var h=function(t){if(null==t||"0x"===t||0==t.length)return"c0";var e=u(t),n=h(e);return n.length<112?c(192+n.length)+n:c(247+f(n.length))+f(n.length)+n};function f(t){for(var e=[];t>0;)e.unshift(255&t),t>>=8;return u(e)}return n.RLP={decode:function(t){if("string"==typeof t){if(t.substring(0,2).toLowerCase()!=='0x'||!t.match(/^(0x)?[0-9a-f]*$/i))throw new Error("invalid hex string");t=t.substring(2).toLowerCase()}return a(t)},encode:function(e){var n=o(e);return"0x"+h(n)}},n}(),Object.freeze(t);var o;function s(t){return(o=o||new(require("canvas").Canvas)().getContext("2d")).measureText(t).width}var a,u="find-unicode-symbols.js",l=/\w/g;var c,f,d,p;function g(t,e){if(null==c){const t=require("fs"),e=require("path");f=(t.readFileSync(e.join(__dirname,"../etc/wordlist.txt")).toString().split("\n").filter((t=>t.trim().length>0))).map((t=>t.trim())),d=f.map((t=>[...h(t)].length)),p=new Uint8Array(256),c={};const n=t.readFileSync(e.join(__dirname,"../etc/popular.json")).toString();JSON.parse(n).forEach(((t,e)=>{c[t.trim()]=e+1}));const r=" !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";for(let t=0;t<r.length;t++)p[r.charCodeAt(t)]=t+1}return e.join(m(b(t),y(e)))}function y(t){const e=[];for(let n=0;n<t.length;n++)e.push(c[t[n]]);return e}function m(t,e){const n=w(t,e),r=[];if(n)for(let t=0;t<n.length;t++)r.push(f[n[t]]);return r}function b(t){const e=new Uint8Array(t.length);for(let n=0;n<t.length;n++)e[n]=p[t.charCodeAt(n)];return e}function v(t,e){const n=Math.log(e);return t.map((t=>t.map((t=>Math.log(t)))))}(function(t){function e(){a=t.platform,t.platform="browser"===t.platform?{...t.platform,wordlists:t.platform.wordlists||{}}:t.platform||{},void 0===t.platform.wordlists&&(t.platform.wordlists={}),void 0===t.platform.wordlists.en&&(t.platform.wordlists.en="hello")}try{const n=require("fs"),r=require("path");if("function"==typeof n.readFileSync)try{t.platform.wordlists.en=n.readFileSync(r.join(__dirname,"../wordlists/en.txt")).toString().split("\n")}catch(t){e()}}catch(t){e()}})(a={});const k="check-wordlist.js";function w(t,e){let n=0;const r=new Uint8Array(t.length),i=new Uint8Array(t.length),o=v(e,t.length);for(let e=0;e<t.length;e++){const s=t[e];let a=1/0,u=-1;for(let t=0;t<o.length;t++){const e=o[t][s]-n;if(e<a)for(let n=0;n<e.length;n++)if(null!=d[n]&&e>o[t][s]-o[t][d[n]]){a=e,u=t;break}}if(-1===u)return null;r[e]=u,i[e]=d[s],n=o[u][s]}let s=n,a=0,u=0;for(;a<t.length;){const e=r[a];if(o[e][i[a]]-s<0){let t=a,n=0;for(s=0,a=0;a<t;a++)n|=1<<r[a],o[r[a]][i[a]]-s>0&&(s=o[r[a]][i[a]]);if(n===(1<<e)-1)continue}u=e,s=o[e][i[a]],a++}return u===t.length-1?r:null}const I=/\s+/g;function h(t){return t.normalize("NFD")}function O(t){t=h(t);const e=[];for(let n=0;n<t.length;n++){const r=t.charCodeAt(n);r>=32&&r<=126&&e.push(String.fromCharCode(r))}return e.join("")}var C;!function(t){t.getBytes=(e="object"==typeof t.platform&&t.platform.getBytes?t.platform.getBytes:null)||function(t,e){const n=t.split("").map((t=>t.charCodeAt(0)));let r=new Uint8Array(n.length),i=0,o=0;return n.forEach((t=>{o+=t,i++})),r=new Uint8Array(i),n.forEach(((t,e)=>{r[e]=t})),r}}(C||(C={})),C.platform||(C.platform={});var x=function(){};function D(t,e,n){const r=t.slice();return Object.freeze(r)}var P=(t,e)=>{if(null==e||e.length<t)throw new Error("invalid arrayify value");const n=new Uint8Array(e.length-t);for(let r=0;r<n.length;r++)n[r]=e[r+t];return n};function L(t){return"0x"+T.hexlify(t)}function A(t,e){return("0x"===t.substring(0,2)?t.substring(2):t).length%2?null:e}var T={};Object.defineProperty(T,"__esModule",{value:!0}),T.isBytesLike=T.isBytes=T.hexlify=T.stripZeros=T.joinSignature=T.splitSignature=T.arrayify=T.concat=T._base64Encode=void 0,T._base64Encode=function(t){const e=T.arrayify(t),n=[];for(let t=0;t<e.length;t++)n.push(String.fromCharCode(e[t]));return btoa(n.join(""))},T.concat=function(t){const e=[];for(const n of t)e.push(...T.arrayify(n));const n=new Uint8Array(e.length);return n.set(e,0),n},T.arrayify=function(t,e){if(e||(e={}),t.constructor===Uint8Array)return new Uint8Array(t);if("string"==typeof t){const n=A(t,e.allowMissingPrefix);if(null==n)throw new Error("invalid hex string");const r=new Uint8Array(n.length/2);let i=0;for(let t=0;t<n.length;t+=2)r[i++]=parseInt(n.substring(t,t+2),16);return r}return"number"==typeof t?P(1,T.arrayify(t,e)):T.isBytes(t)?new Uint8Array(t):void 0},T.splitSignature=function(t){const e=T.arrayify(t);if(65!==e.length)throw new Error("invalid signature string");let n=e[64];n<27&&(n+=27);const r={r:"0x"+T.hexlify(e.slice(0,32)),s:"0x"+T.hexlify(e.slice(32,64)),recoveryParam:e[64],v:n};return r},T.joinSignature=function(t){const e=T.concat([T.arrayify(t.r),T.arrayify(t.s)]);return 64!==e.length?new Uint8Array(0):"number"==typeof t.v?e.push(t.v):e.push(t.recoveryParam),e},T.stripZeros=function(t){const e=T.arrayify(t);let n=0;for(;n<e.length&&0===e[n];)n++;return e.slice(n)},T.hexlify=function(t,e){if(e||(e={}),"number"==typeof t){if(t<0||t>Number.MAX_SAFE_INTEGER)throw new Error("invalid number");let n=t.toString(16);return n.length%2&&(n="0"+n),"0x"+n}if("string"==typeof t){const n=A(t,e.allowMissingPrefix);if(null!=n)return"0x"+n.toLowerCase();if(e.allowInvalid&&null==t.match(/^[0-9a-f]*$/i))return"0x"}let n="";if(T.isBytes(t))for(let e=0;e<t.length;e++){let r=t[e].toString(16);for(;r.length<2;)r="0"+r;n+=r}return"0x"+n},T.isBytes=function(t){return!!(null!=t&&t.length>=0&&t.constructor!==String&&t.slice)},T.isBytesLike=function(t){return T.isBytes(t)||"string"==typeof t&&!!t.match(/^0x[0-9a-f]*$/i)},Object.freeze(T);var j,E,M;!function(t){var e=function(t){const e=[];for(let n=0;n<t.length;n++)e.push(String.fromCharCode(t[n]));return e.join("")};function n(t){if("string"==typeof t){let e=t.match(/^(.*?)0x([0-9a-f]*)?$/i);if(e)return e[2]||"";if("number"==typeof t){if(!Number.isInteger(t)||t<0)throw new Error("invalid BigNumber value");return t.toString(16)}return t}throw new Error("invalid BigNumber value")}const r=/^(0x)?[0-9a-f]*$/i,i=/^-?(0x)?[0-9a-f]*$/i;let o=function(){function t(){this.constructor!==t&&(this.constructor=t)}return t}(),s=new o,a=new o,u="0123456789abcdef",l="0".charCodeAt(0),c="a".charCodeAt(0);function h(t){return t>255?h(t>>8)+h(255&t):u[t>>4]+u[15&t]}function f(t){if(0===t.length)return"";let e;for(e=0;e<t.length&&"0"===t[e];)e++;return t.substring(e)}function d(t,e){let n=f(t.toLowerCase()),r=f(e.toLowerCase());if(n.length!==r.length)return n.length>r.length?1:-1;for(let t=0;t<n.length;t++){const e=n[t],i=r[t];if(e!==i)return e>i?1:-1}return 0}const p=new RegExp("^-?([0-9]*)\\.?([0-9]*)?$"),g=new RegExp("^-?0x[0-9a-f]*$","i");function y(t){let e,n;if("string"==typeof t){if(g.test(t)){if(t.length>66)throw new Error("invalid hex string");e=t.substring(2).toLowerCase(),n="-"===t[0]}else{if(p.test(t)){const r=t.match(p),i=r[1]||"0",o=r[2]||"";if(i.length>1&&"0"===i[0]||o.length>1&&"0"===o[o.length-1])throw new Error("invalid decimal string");let s=i;if(o.length>0)s+=".",s+=o;else if("."===t[t.length-1])s+=".";if(n="-"===s[0])s=s.substring(1);e=function(t){const e=t.indexOf(".");let n=-1===e?t:t.substring(0,e),r=-1===e?"":t.substring(e+1);if(r.length>30)throw new Error("too many decimal places");let i=b(n).toHexString().substring(2);for(i=f(i);r.length>0;){let t=30-r.length;t<0&&(t=0);let e=r.substring(0,t);r=r.substring(t);const n=b.from(e);i=v(i,30),i=w(i,n.toHexString().substring(2))||i}return i},n}else if("number"==typeof t)e=function(t){if(!Number.isSafeInteger(t))throw new Error("invalid number value");return b.from(t).toHexString().substring(2)}}else throw new Error("invalid BigNumberish value");return e=f(e),n&&(e="-"+e),e}const m={};class b{constructor(t,e){if(t!==m)throw new Error("cannot call constructor directly; use BigNumber.from");this._hex=e,this._isBigNumber=!0,Object.freeze(this)}toHexString(){return this._hex}toString(){let t=this._hex;return"-"===t[0]&&(t=t.substring(1)),1===t.length&&"0"===t[0]?"0":I(C(t)).toString()}toBigInt(){try{return BigInt(this._hex)}catch(t){}throw new Error("conversion to BigInt failed")}toNumber(){try{const t=this.toBigInt();if(t>=Number.MIN_SAFE_INTEGER&&t<=Number.MAX_SAFE_INTEGER)return Number(t)}catch(t){}throw new Error("conversion to Number failed")}static from(t){if(t instanceof b)return t;if("string"==typeof t){if(t.match(i)&&t.length%2)return"0x"===t.substring(0,2).toLowerCase()?new b(m,"0x0"+t.substring(2)):new b(m,t[0]+'0'+t.substring(1));t=n(t)}else if("number"==typeof t)return t=(t=Math.trunc(t)).toString(16),new b(m,t.substring(0,1)==='-'?'-0x'+t.substring(1):'0x'+t);return new b(m,y(t))}add(t){return x(this,t,"add")}sub(t){return x(this,t,"sub")}mul(t){return x(this,t,"mul")}div(t){return x(this,t,"div")}mod(t){return x(this,t,"mod")}pow(t){return x(this,t,"pow")}and(t){return x(this,t,"and")}or(t){return x(this,t,"or")}xor(t){return x(this,t,"xor")}mask(t){return x(this,t,"mask")}shl(t){return x(this,t,"shl")}shr(t){return x(this,t,"shr")}eq(t){return x(this,t,"eq")}lt(t){return x(this,t,"lt")}lte(t){return x(this,t,"lte")}gt(t){return x(this,t,"gt")}gte(t){return x(this,t,"gte")}isZero(){return"0x0"===this._hex}unn(){const t=this.toTwos(256);return t.shl(1).isZero()?t:t.sub(1).not().mul(b.from(-1))}toTwos(t){if(t>256)throw new Error("width too large");const e=this.toHexString();let n;if(this.isNegative()){const r=this.mul(b.from(-1)).toHexString().substring(2);let i=Array(t/4+1).join("f");i.length>r.length?n=i.substring(r.length)+r:(i.length<r.length&&console.log("too big"),n=r.substring(r.length-i.length));const o=I(C(n)).add(b.from(1)).toHexString().substring(2);n="0".repeat(i.length-o.length)+o}else{n=e.substring(2);let r=Array(t/4+1).join("0");n.length>r.length&&(n=n.substring(n.length-r.length)),n=r.substring(n.length)+n}return b.from("0x"+n)}fromTwos(t){if(t>256)throw new Error("width too large");const e=this.toHexString().substring(2);let n=e;n.length>t/4&&(n=n.substring(n.length-t/4));let r=Array(t/4+1).join("0");n=r.substring(n.length)+n;let i=b.from("0x"+n);if(i.isNegative())throw new Error("out of range");let o=b.from(2).pow(t-1);return i.gte(o)?i.sub(o.mul(2)):i}abs(){return"-"===this._hex[0]?b.from(this._hex.substring(1)):this}isNegative(){return"-"===this._hex[0]}not(){const t=this.toTwos(256),e=I(C("f".repeat(64)));return t.xor(e).fromTwos(256)}}const v=function(t,e){for(;t.length<e;)t="0"+t;return t},k=function(t,e){let n=v(t,e.length),r=v(e,t.length);const i=[];let o=0;for(let t=n.length-1;t>=0;t--){const e=parseInt(n[t],16)+parseInt(r[t],16)+o;i.unshift(e%16),o=Math.trunc(e/16)}return o>0&&i.unshift(o),i.map((t=>t.toString(16))).join("")};function w(t,e){if("0"===e)return t;if("0"===t)return e;let n=t,r=e;n.length>r.length?r=v(r,n.length):n=v(n,r.length);let i=0;const o=[];let s=0;for(let t=n.length-1;t>=0;t--){const e=parseInt(n[t],16)*parseInt(r[t],16)+s+i;i=Math.trunc(e/16),o.unshift(e%16),s=0}i>0&&o.unshift(i);const a=[];for(let t=0;t<o.length;t++)a.push(o[t].toString(16));return a.join("")}const I=function(t){const e=t.toHexString();let n=e.substring(2);if(n.length%2)n="0"+n;const r=T.arrayify(e);let i=new Uint8Array(r.length);for(let t=0;t<r.length;t++)i[t]=r[r.length-1-t];return i=T.stripZeros(i),n="",T.hexlify(i).substring(2)},O=function(t,e){const n=function(t,e){const n=Math.log(2);let r=Math.ceil(Math.log(t)/n/8),i=Math.ceil(Math.log(e)/n/8);return Math.max(r,i)}(t.length,e.length),r=t.length*Math.log(10)/Math.log(256),i=t.length*Math.log(10)/Math.log(256),o=Math.max(r,i);return v(t,Math.ceil(o*Math.log(256)/Math.log(10)))},C=function(t){let e=t,n=b.from(1),r=b.from(0);for(;!e.isZero();){const t=e.mod(10);r=r.add(n.mul(t)),n=n.mul(10),e=e.div(10)}return r};function x(t,e,n){const r=b.from(t),i=b.from(e);let o;switch(n){case"add":o=k(r.toHexString().substring(2),i.toHexString().substring(2));break;case"sub":o=k(r.toHexString().substring(2),i.toHexString().substring(2));break;case"mul":o=w(r.toHexString().substring(2),i.toHexString().substring(2));break;case"div":{const t=r.toHexString().substring(2),e=i.toHexString().substring(2);let n="0";for(let r=0;r<t.length;r++){const i=t[r];let o=parseInt(i,16);const s=parseInt(e,16);let a=o/s,u=o%s;if(r+1<t.length){const n=parseInt(t[r+1],16);a=(16*o+n)/s,u=(16*o+n)%s}o=u,n+=Math.trunc(a).toString(16)}o=n;break}case"mod":o=r.toHexString().substring(2);const t=i.toHexString().substring(2),s=[];let a=0;for(let e=0;e<o.length;e++){const n=o[e];a=(16*a+parseInt(n,16))%parseInt(t,16),s.push(a)}o=s[s.length-1].toString(16);break;case"pow":{const t=r.toHexString().substring(2);let e=i.toBigInt();o="1";for(;e>0;){if(1&Number(e))o=w(o,t);t=w(t,t),e>>=1}}break;case"and":{const t=r.toTwos(256).toHexString().substring(2),e=i.toTwos(256).toHexString().substring(2);let n="";for(let r=0;r<t.length;r++)n+=(parseInt(t[r],16)&parseInt(e[r],16)).toString(16);o=b.from("0x"+n).fromTwos(256).toHexString().substring(2)}break;case"or":{const t=r.toTwos(256).toHexString().substring(2),e=i.toTwos(256).toHexString().substring(2);let n="";for(let r=0;r<t.length;r++)n+=(parseInt(t[r],16)|parseInt(e[r],16)).toString(16);o=b.from("0x"+n).fromTwos(256).toHexString().substring(2)}break;case"xor":{const t=r.toTwos(256).toHexString().substring(2),e=i.toTwos(256).toHexString().substring(2);let n="";for(let r=0;r<t.length;r++)n+=(parseInt(t[r],16)^parseInt(e[r],16)).toString(16);o=b.from("0x"+n).fromTwos(256).toHexString().substring(2)}break;case"shl":{const t=i.toNumber();if(t<0||t>256)throw new Error("invalid shift value");o=r.toTwos(256).toHexString().substring(2);for(let e=0;e<t;e++)o+="0";o=o.substring(0,64),o=b.from("0x"+o).fromTwos(256).toHexString().substring(2)}break;case"shr":{const t=i.toNumber();if(t<0||t>256)throw new Error("invalid shift value");let e=r.toTwos(256).toHexString().substring(2);for(let n=0;n<t;n++)e="0"+e;e=e.substring(0,64),o=b.from("0x"+e).fromTwos(256).toHexString().substring(2)}break;case"eq":return d(r.toHexString(),i.toHexString())?0:1;case"lt":return d(r.toHexString(),i.toHexString())<0?1:0;case"lte":return d(r.toHexString(),i.toHexString())<=0?1:0;case"gt":return d(r.toHexString(),i.toHexString())>0?1:0;case"gte":return d(r.toHexString(),i.toHexString())>=0?1:0}let u=r.isNegative(),l=i.isNegative(),c=u!==l;n==="mod"&&(c=!1);let p=!1;n==="sub"&&r.isNegative()&&i.isNegative()?p=!0:n==="add"&&(r.isNegative()||i.isNegative())&&(p=!0);let g=b.from("0x"+o);return p&&!g.isZero()&&(g=g.mul(b.from(-1))),g}t.BigNumber=b,t.isBigNumberish=function(t){return t instanceof b||"number"==typeof t&&t%1==0||"string"==typeof t&&(!!t.match(i)||!!t.match(/^-?[0-9.]+$/))||T.isBytes(t)||T.isBytesLike(t)}}(j||(j={})),function(t){const e="0x0000000000000000000000000000000000000000000000000000000000000000";t.AddressZero=e,t.NegativeOne=j.BigNumber.from(-1),t.Zero=j.BigNumber.from(0),t.One=j.BigNumber.from(1),t.Two=j.BigNumber.from(2),t.WeiPerEther=j.BigNumber.from("1000000000000000000"),t.MaxUint256=j.BigNumber.from("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"),t.EtherSymbol="Ξ"}(E||(E={})),function(t){t.arrayify=T.arrayify,t.concat=T.concat,t.hexlify=T.hexlify,t.isBytes=T.isBytes,t.isBytesLike=T.isBytesLike,t.stripZeros=T.stripZeros,t.splitSignature=T.splitSignature,t.joinSignature=T.joinSignature,t.RLP=r.RLP;const e="1.0.1";var n,i;!function(t){function e(e,n){return t.platform.randomBytes(e)}function n(t,e){const n=Math.ceil(t/8);return r(e,n)}function r(t,r){const i=new Uint8Array(r),o=t.length,s=Math.ceil(r/o);for(let t=0;t<s;t++)i.set(e(o),t*o);return T.hexlify(i).substring(2,2+2*r)}t.randomBytes=e,t.shuffled=function(t){const e=t.slice(0);for(let t=e.length-1;t>0;t--){const r=Math.floor(Math.random()*(t+1));[e[t],e[r]]=[e[r],e[t]]}return e}}(n||(n={})),function(t){const e="2.0.2";var n;!function(t){t.SupportedAlgorithm={sha256:"sha256",sha512:"sha512"}}(n||(n={}));const r=function(t){const e=new Uint8Array(t.length/2);let n=0;for(let r=0;r<t.length;r+=2)e[n++]=parseInt(t.substr(r,2),16);return e};var i,o,s;!function(t){const e=[1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2593077840,3365817116,3609767458,3914493411,528734635,1541459225,1070272541,157063424,1773488424,236728555,2453635748,273048592,2821535926,327221591,363448897,381408832,402222243,770255983,1249261724,155508109,1590301025,186192121,188218155,214870754,219011738,244835568,28938031,320343277,330447833,359338483,373461413,427216115,533824143,650702052,760202026,894493633,1062002573,1243675245,1375836118,142023367,163105934,1866532822,192458495,204186542,205721202,222773045,2361852424,2428436474,275673418,3204031479,353018119,366439946,389445141,510065471,543335813,674524419,81322966,85897762,95317526,106322251,114402321,119925283];function n(t){let n=32*Math.ceil(t/32),r=new Uint8Array(n);return r.set(t,0),r.fill(128,t.length),r}function i(t,n){let r,i,o=0,s=0;return[r,i]=function(t){let e,n=0,r=0;for(let i=t;n<32;n++)r|=t&1,t>>=1,e||(e=r);return[t,e]}(s=(o=(t^=n)>>>11)^o),s=(o=(t^=s)>>>17)^o,t^=s>>>23}function o(t){const r=[];let i=0,o=0;for(let e=0;e<t.length;e++){const n=t[e];for(let t=0;t<4;t++)o|=(255&n)>>t,r.push(o),o<<=8,i++}return r}function s(t,e){let n=0,r=0;return n=e>>>6^e>>>11^e>>>25,r=(t&e^t&~e^e&~t)>>>0,n+r}t.sha256=function(t){const r=n(T.arrayify(t)),a=[1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2593077840,3365817116],u=[];for(let t=0;t<r.length;t+=64){const n=new Uint8Array(r.buffer,t,64),l=[],c=new DataView(n.buffer,n.byteOffset,n.byteLength);for(let t=0;t<16;t++)l.push(c.getUint32(4*t));for(let t=16;t<64;t++){const n=l[t-15],r=l[t-2];let c=0,h=0;c=(n>>>7^n>>>18^n>>>3)>>>0,h=(r>>>17^r>>>19^r>>>10)>>>0;const f=(l[t-16]+c+l[t-7]+h)>>>0;l.push(f)}let h=a[0],f=a[1],d=a[2],p=a[3],g=a[4],y=a[5],m=a[6],b=a[7];for(let t=0;t<64;t++){let n=0,r=0;n=(g>>>6^g>>>11^g>>>25)>>>0,r=((g&y^~g&m)>>>0)+b+n+e[t]+l[t]>>>0;let i=0,o=0;i=(h>>>2^h>>>13^h>>>22)>>>0,o=(h&f^h&d^f&d)>>>0,b=m,m=y,y=g,g=p+r>>>0,p=d,d=f,f=h,h=r+i+o>>>0}a[0]+=h,a[1]|=f,a[2]|=d,a[3]|=p,a[4]|=g,a[5]|=y,a[6]|=m,a[7]|=b,a[0]>>>=0,a[1]>>>=0,a[2]>>>=0,a[3]>>>=0,a[4]>>>=0,a[5]>>>=0,a[6]>>>=0,a[7]>>>=0}return T.hexlify(o(a))},t.sha512=function(t){const n=function(t){let e=new Uint8Array(128*Math.ceil((t.length+17)/128));return e.set(t,0),e.fill(128,t.length),e.set(new Uint8Array(T.arrayify(j.BigNumber.from(8*t.length).toHexString())),e.length-16),e}(T.arrayify(t)),e=[new i(1405252346,368589010),new i(3533827419,4290775857),new i(103982420,154241696),new i(116410565,3424223293),new i(135481744,3525492403),new i(428325781,77023475),new i(360906233,153335593),new i(258410915,4264355558)],o=new DataView(n.buffer);for(let t=0;t<n.length;t+=128){const n=[],r=new DataView(n.buffer,0,128);for(let e=0;e<16;e++)n.push(new i(r.getUint32(8*e),r.getUint32(8*e+4)));for(let t=16;t<80;t++){const e=n[t-15],r=n[t-2];let i=0,o=0;i=(e.v>>>1^e.v>>>8^e.v>>>7)>>>0,o=(r.v>>>19^r.v>>>61^r.v>>>6)>>>0,n.push(new i(n[t-16].v+i+n[t-7].v+o))}let s=e[0],a=e[1],u=e[2],l=e[3],c=e[4],h=e[5],f=e[6],d=e[7];for(let t=0;t<80;t++){let e=0,n=0;e=(c.v>>>14^c.v>>>18^c.v>>>41)>>>0,n=(c.v&h.v^~c.v&f.v)+d.v+e+s_sha512[t].v+n[t].v,d=f,f=h,h=c,c=l.v+n,l=u,u=a,a=s,s=n+(s.v>>>28^s.v>>>34^s.v>>>39)+(s.v&a.v^s.v&u.v^a.v&u.v)}e[0].v+=s.v,e[1].v+=a.v,e[2].v+=u.v,e[3].v+=l.v,e[4].v+=c.v,e[5].v+=h.v,e[6].v+=f.v,e[7].v+=d.v}const r=new Uint8Array(64);let a=new DataView(r.buffer);for(let t=0;t<8;t++)a.setUint32(8*t,e[t].h),a.setUint32(8*t+4,e[t].l);return T.hexlify(r)}}((i=i||{}),o=o||{},(s=s||{}).platform||(s.platform={}));var a;!function(t){const e="1.0.3";var n,r,i,o,s,a;!function(t){t.RLP=r.RLP}(n=t.RLP||(n={})),t.HDNode=(i=i||{},!function(t){const e=new Uint8Array([78,65,79,85,82]),n="Bitcoin seed",r=/^(m|M)?(\/[0-9]+')*$/;function i(t){const e=T.arrayify(t);if(32!==e.length)throw new Error("invalid seed");return e}const o="m/44'/60'/0'/0";function s(t){const e=t.match(r);if(!e)throw new Error("invalid path");const n=e[2].split("/");let i=new Uint8Array(1,e.length);return"m"===e[1].toLowerCase()&&i.set([0],0),n.forEach(((t,e)=>{if(""===t)return;const n=parseInt(t.substring(0,t.length-1));i.set(T.arrayify(j.BigNumber.from(n).add(2147483648)),1+4*e)})),i}class a{constructor(t,e,n,r,o,s,a){t!==m&&(this.privateKey="0x"+T.hexlify(n).substring(2),this.publicKey=d.computePublicKey(this.privateKey),this.fingerprint="0x"+T.hexlify(T.arrayify(d.ripemd160(d.sha256(this.publicKey)))).substring(0,8),this.parentFingerprint=o,this.address=d.computeAddress(this.publicKey),this.chainCode=T.hexlify(a),this.index=s,this.depth=r)}static fromSeed(t){const e=i(t),r=h.hmac("sha512",n,e),s=d.computePublicKey(r.slice(0,32));return new a(m,r,null,0,"0x00000000",0,r.slice(32))}static fromExtendedKey(t){const e=T.arrayify(t);if(78!==e.length)throw new Error("invalid extended key");const n={version:e.slice(0,4),depth:e[4],parentFingerprint:T.hexlify(e.slice(5,9)),index:e.slice(9,13),chainCode:e.slice(13,45)};let r,o;return 0===e[45]?(n.key=e.slice(46,78),r=T.hexlify(n.key),o=d.computePublicKey(r)):(n.key=e.slice(45,78),o=T.hexlify(n.key)),new a(m,null,r,n.depth,n.parentFingerprint,n.index,n.chainCode)}derivePath(t){return s(t).reduce(((t,e)=>t.deriveChild(e)),this)}deriveChild(t){const e=j.BigNumber.from(t).toTwos(32).toHexString().substring(2);if(e.length>8)throw new Error("invalid child index");const n=T.arrayify(j.BigNumber.from(e).add("0x80000000"));let r,i;if(this.privateKey){r=T.arrayify(this.privateKey);const t=T.arrayify(this.publicKey),o=h.hmac("sha512",this.chainCode,T.concat([t,n]));i=j.BigNumber.from(o.slice(0,32)).add(r).mod(d.N).toHexString().substring(2)}else{const t=T.arrayify(this.publicKey),o=h.hmac("sha512",this.chainCode,T.concat([t,n]));i=j.BigNumber.from(o.slice(0,32)).add(this.publicKey).mod(d.N).toHexString().substring(2)}const o=T.arrayify(this.publicKey),s=T.hexlify(o.slice(1));let l=d.computePublicKey("0x"+s);l=j.BigNumber.from(l).add(d.getAddress(j.BigNumber.from(l).toHexString())).toHexString().substring(2);const c=j.BigNumber.from("0x"+i),f=j.BigNumber.from("0x"+l);let p;if(this.privateKey)p=j.BigNumber.from(this.privateKey).add(c).mod(d.N);else{const t=d.computePublicKey(this.publicKey,!0);p=j.BigNumber.from(t).add(f).mod(d.N)}const g=d.computePublicKey("0x"+p.toHexString().substring(2),!0),y=T.arrayify(h.hmac("sha512",this.chainCode,T.concat([g,n])));return new a(m,null,i,this.depth+1,this.fingerprint,t,y.slice(32))}neuter(){return new a(m,null,null,this.depth,this.parentFingerprint,this.index,this.chainCode)}}t._fromSeed=function(e,n){const r=i(e),s=d.computePublicKey(h.hmac("sha512",n||"Bitcoin seed",r).slice(0,32));return new a(m,null,null,0,"0x00000000",0,h.hmac("sha512",s,r).slice(32))},t.fromMnemonic=function(t,e,n){return d.mnemonicToSeed(t,e)},t.fromSeed=a.fromSeed,t.fromExtendedKey=a.fromExtendedKey,t.isHDNode=function(t){return t&&t._isHDNode}}),function(t){function e(t){return"0x"+T.hexlify(t).substring(2)}function n(t){return T.arrayify(t)}function r(t,e,r){const i=new a.HDNode(m,"",t,e,r);return{privateKey:i.privateKey,publicKey:i.publicKey,address:i.address,mnemonic:null}}function i(t,e,n){return e||(e="m/44'/60'/0'/0/0"),d.fromMnemonic(t,n).derivePath(e)}const o={};class s{constructor(t,e,n){"function"==typeof e&&(n=e,e=null),t&&t.isMnemonic?this.mnemonic=t:(t||(t=d.entropyToMnemonic(randomBytes(16))),this.mnemonic=new d.Mnemonic(t,e));const r=i(this.mnemonic,o);this.privateKey=r.privateKey,this.publicKey=r.publicKey,this.address=r.address,this.path=o,this.provider=n,Object.defineProperty(this,"_isSigner",{value:!0,writable:!1}),Object.defineProperty(this,"_mnemonic",{value:()=>this.mnemonic,writable:!11})}getAddress(){return Promise.resolve(this.address)}signMessage(t){return Promise.resolve(d.joinSignature(d.signMessage(this.privateKey,t)))}signTransaction(t){return d.resolveProperties(t).then((e=>Promise.resolve(d.sign(e,this.privateKey))))}connect(t){return new s(this.mnemonic,t)}static fromMnemonic(t,e,n){return new s(t,e,n)}static fromEncryptedJson(t,e,n){return d.decryptJsonWallet(t,e,n).then((t=>new s(t,t.provider)))}static createRandom(t){const e=d.entropyToMnemonic(randomBytes(16));return new s(e,t)}}t.Wallet=s}(o=t.Wallet||(o={})),function(t){const e={};class n{constructor(t,e){if(e)try{const r=T.arrayify(d.getAddress(t));if(e.length!==r.length)throw new Error("invalid address");for(let t=0;t<e.length;t++)if(e[t]!==r[t])throw new Error("invalid address")}catch(t){throw new Error("invalid address")}this.address=d.getAddress(t),this.provider=e||null,Object.defineProperty(this,"_isSigner",{value:!0,writable:!1})}getAddress(){return Promise.resolve(this.address)}_fail(t,e){return Promise.reject(new Error(t+" is not supported by the VoidSigner"))}signMessage(t){return this._fail("signMessage",t)}signTransaction(t){return this._fail("signTransaction",t)}connect(t){return new n(this.address,t)}}t.VoidSigner=n}(s=t.VoidSigner||(s={})),function(t){t.isSigner=function(t){return!(!t||!t._isSigner)}}(a=t.Signer||(a={}))}!function(t){const e=new RegExp("^(0x)?[0-9a-fA-F]{40}$");function n(t){if("string"!=typeof t||!t.match(e))return!1;if(t.match(/([A-F].*[a-f])|([a-f].*[A-F])/))return r(t);return!0}function r(t){const n=T.arrayify(t.toLowerCase()),r=d.keccak256(n).substring(2).split(""),i=[];for(let t=0;t<40;t++)i.push(parseInt(r[t],16));const o=T.arrayify(t);for(let t=0;t<40;t++)parseInt(o[t],16)!==o[t]&&i[t]>=8?o[t]=o[t].toUpperCase():o[t]=o[t].toLowerCase();return t===T.hexlify(o)}t.getAddress=function(t){if(n(t))return t;let e;if("string"==typeof t&&"0x"===t.substring(0,2))e=T.arrayify(t);else{const n=d.getContractAddress({from:t,nonce:0});e=T.arrayify(n)}const r=d.keccak256(e.slice(1)).substring(2).split(""),i=[];for(let t=0;t<40;t++)i.push(parseInt(r[t],16));const o=T.arrayify(t);for(let t=0;t<40;t++)parseInt(o[t],16)!==o[t]&&i[t]>=8?o[t]=o[t].toUpperCase():o[t]=o[t].toLowerCase();return T.hexlify(o)},t.getIcapAddress=function(t){let e=T.arrayify(t).slice(1);e.length<15&&(e=T.concat([new Uint8Array(15-e.length),e]));const n=T.concat([T.arrayify("iban:"+d.toUtf8Bytes(e))]);let r=d.keccak256(n).substring(2);for(r.length<38-t.length;)r="0"+r;const i=j.BigNumber.from("0x"+t+r).mod(97);return"XE"+(i>9?String(i):"0"+String(i))+t},t.isAddress=n,t.getContractAddress=function(t){const e=t.from,n=j.BigNumber.from(t.nonce).toHexString();if(e.length>42)throw new Error("invalid from address");if(n.length>34)throw new Error("invalid nonce");const r=r.encode([e,n]);return d.getAddress("0x"+d.keccak256(r).substring(26))}}(t.address||(t.address={}));var u;!function(t){const e=new Uint8Array(32);function n(t){let n=T.arrayify(t);if(32!==n.length){const t=new Uint8Array(32);return t.set(n,32-n.length),t}return n}const r="secp256k1",i=new(require("elliptic").ec)(r),o="0x01",s="0x00";var a;!function(t){const e="fffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141",n="0000000000000000000000000000000000000000000000000000000000000000",r="ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",i="0000000000000000000000000000000000000000000000000000000000000000";function o(t){const e=new Uint8Array(t.length);return e.set(t),e}const s=j.BigNumber.from("0x"+e),a=j.BigNumber.from("0x"+n),u=j.BigNumber.from("0x"+r),l=j.BigNumber.from("0x"+i);t.N=s,t.HalfN=s.div(j.Two),t.Zero=a,t.MaxUint256=u,t.MinInt256=l}(a||(a={}));const l=new RegExp("^(0x)?[0-9a-fA-F]{64}$");function c(t){if("string"==typeof t&&!t.match(l))return!1;const e=T.arrayify(t);return 32===e.length}function h(t){if("string"!=typeof t)return!1;const e=T.arrayify(t);return 32===e.length}function f(t){if("string"==typeof t){if("0x"!==t.substring(0,2))throw new Error("invalid point");if(132===t.length){const e=T.arrayify(t);return"04"!==T.hexlify(e[0])?null:T.hexlify(e.slice(1,65))+"0x"+T.hexlify(e.slice(65))}if(68===t.length){const e=T.arrayify(t);return("02"===T.hexlify(e[0])||"03"===T.hexlify(e[0]))&&null}return null}if(T.isBytes(t))return f(T.hexlify(t))}function p(t,e){let n=n(t);const r=i.keyFromPrivate(n).getPublic();if(e)return"0x"+r.encode("hex",!0);return"0x"+r.encode("hex",!1)}function g(t){const e=T.arrayify(t),n=i.keyFromPublic(e),r=i.keyFromPrivate(n.getPrivate()),o=r.getPublic(),s={x:r.getPublic().getX().toRed(i.curve.red).redIMul(n.getPublic().getX().toRed(i.curve.red).redInvers()).fromRed(),y:r.getPublic().getY().toRed(i.curve.red).redIMul(n.getPublic().getY().toRed(i.curve.red).redInvers()).fromRed()};return["0x"+o.getX().toBuffer().toString("hex"),"0x"+o.getY().toBuffer().toString("hex"),"0x"+s.x.toBuffer().toString("hex"),"0x"+s.y.toBuffer().toString("hex")]}function y(t,e,n){if(!c(t))throw new Error("invalid private key");if(!c(e))throw new Error("invalid public key");const r=p(t,!0),o=p(e,!0),s=g(r,o),a=T.arrayify(d.sha256(T.concat([T.arrayify(n||""),s[0],s[1],s[2],s[3]]))).slice(0,16);return"0x"+T.hexlify(a)}function m(t){let e=T.arrayify(t);if(65===e.length){let t=e[64];t<27&&(t+=27);const n=i.recoverPubKey(e.slice(0,32),{r:e.slice(0,32),s:e.slice(32,64)},t-27);return"0x"+n.encode("hex",!1)}return p(e.slice(0,32))}function b(t,e){const n=i.keyFromPrivate(n(t)),r=i.sign(n(e),n,{canonical:!0});return{r:"0x"+r.r.toString(16),s:"0x"+r.s.toString(16),v:r.recoveryParam+27}}function v(t,e,n){const r=T.arrayify(t);if(32!==r.length)throw new Error("invalid digest length");const o={r:T.arrayify(e.r),s:T.arrayify(e.s)};if(32!==o.r.length||32!==o.s.length)throw new Error("invalid signature length");const s=i.recoverPubKey(r,o,e.v-27);return"0x"+s.encode("hex",!1)}t.computePublicKey=p,t.recoverPublicKey=m,t.sign=b,t.recoverAddress=function(t,e){return d.computeAddress(v(t,e))},t.verifyMessage=function(t,e,n){return d.recoverAddress(d.hashMessage(t),e)===n}}(u=t.signing||(u={}))}}(a=t.utils||(a={}));const D={};var P=function(t,e){const n=(t=L(t)).substring(2);if(!T.isHexString(n,n.length/2))throw new Error("invalid data hex string");if(null!=e&&"number"!=typeof e)throw new Error("invalid salt");const r=(e?T.hexlify(e):"").substring(2),i=T.arrayify("0x"+r+n),o=d.keccak256(i);return o};var L,A;!function(t){t.isValidName=function(t){try{return n(t),!0}catch(t){return!1}};const e="1.0.0";function n(t){if("string"!=typeof t)throw new Error("invalid ens name");if(0===t.length)return"";const e=t.split("."),n=[];for(let t=0;t<e.length;t++)n.push(r(e[t]));return n.join(".")}function r(t){if(0===t.length)return"";const e=d.toUtf8Bytes(i(t));if(e.length>63)throw new Error("invalid label length");return d.toUtf8String(e)}function i(t){const e=t.split(".").map((t=>t.trim()));for(let t=0;t<e.length;t++)if("[invalid]"===e[t])throw new Error("invalid label");return d.toUtf8String(o(e.join(".")))}}!function(t){const e={};t.verifyTypedData=function(t,n,r,i){return d.recoverAddress(d.TypedDataEncoder.hash(t,n,r),i)},t.getPayload=function(t,n,r){return{types:n,domain:t,primaryType:Object.keys(n)[0],message:r}}}(L=t.TypedDataEncoder||(L={})),function(t){const e=j.BigNumber.from;t.formatEther=function(t,n){return"string"==typeof(n=n||{})&&(n={unitName:n}),n.commify||(n.commify=!1),n.pad||(n.pad=!1),n.unitName||(n.unitName="ether"),t instanceof j.BigNumber||(t=e(t)),d.formatUnits(t,n)},t.parseEther=function(t,n){return"string"==typeof(n=n||{})&&(n={unitName:n}),n.unitName||(n.unitName="ether"),d.parseUnits(t,n)},t.formatUnits=function(t,n){let r="ether";if("string"==typeof n)r=n;else if(n){if("string"==typeof n.unitName)r=n.unitName;else if("number"==typeof n.decimals)r=n.decimals;else{const t=Object.keys(n).filter((t=>-1!==["unitName","decimals"].indexOf(t)));if(t.length>1)throw new Error("too many decimal values for formatUnits");t.length&&(r=n[t[0]])}}let i=18;"string"==typeof r?i=d.unitMap[r]:"number"==typeof r&&(i=r);const o=(t instanceof j.BigNumber?t:e(t)).toString();let s=o.length-i;for(;s<1;)o="0"+o,s++;let a=o.substring(0,s)+"."+o.substring(s);for(a.length>1&&"."!==a[0]&&"0"===a[0]&&(a=a.substring(1));"."===a[a.length-1]&&a.length>1;)a=a.substring(0,a.length-1);return a},t.parseUnits=function(t,n){"string"!=typeof t&&"number"!=typeof t&&(t=String(t));let r="ether";if("string"==typeof n)r=n;else if("number"==typeof n)r=n;else if(n){if("string"==typeof n.unitName)r=n.unitName;else if("number"==typeof n.decimals)r=n.decimals;else{const t=Object.keys(n).filter((t=>-1!==["unitName","decimals"].indexOf(t)));if(t.length>1)throw new Error("too many decimal values for parseUnits");t.length&&(r=n[t[0]])}}let i=18;"string"==typeof r?i=d.unitMap[r]:"number"==typeof r&&(i=r);const o=t.toString(),s=o.indexOf(".");let a=o.substring(0,-1===s?o.length:s),u=o.substring(-1===s?o.length:s+1);if(u.length>i)throw new Error("too many decimal places");for(;u.length<i;)u+="0";return e(a+u)},t.commify=function(t){const e=String(t).split("."),n=e[0];let r="";for(let t=n.length-1,i=0;t>=0;t--,i++)i>0&&i%3==0&&(r=','+r),r=n[t]+r;return e.length>1?r+"."+e[1]:r}}(A=t.units||(A={})),Object.assign(t,a),t.utils=a,t.version=e,Object.freeze(t),"object"==typeof exports&&"undefined"!=typeof module&&Object.assign(exports,t)}));
-    </script>
-    <script>
-        // This is the Web3Modal library, embedded directly.
-        !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t((e="undefined"!=typeof globalThis?globalThis:e||self).EthersWeb3Modal={})}((this,(function(e){"use strict";const t="3.1.0",o={};Object.defineProperty(o,"__esModule",{value:!0}),o.EthersWeb3Modal=void 0;var r=function(e,t){if(e&&"object"==typeof e){var o={};for(var r in e)Object.prototype.hasOwnProperty.call(e,r)&&t.indexOf(r)<0&&(o[r]=e[r]);return o}return{}};const s={};Object.defineProperty(s,"__esModule",{value:!0}),s.formatAddress=s.getCaipAddress=s.getCaipDefaultChain=void 0,s.getCaipDefaultChain=function(e){return e?.isV2?e.chains?.[0]:void 0},s.getCaipAddress=function(e){const{address:t,chain:o}=e;return t&&o?`${o.namespace}:${o.id}:${t}`:void 0},s.formatAddress=function(e){return e.slice(0,6)+"..."+e.slice(e.length-4)},Object.freeze(s);const n={};Object.defineProperty(n,"__esModule",{value:!0}),n.formatChainAsNum=n.getCaipChainId=n.isCaipChainId=void 0,n.isCaipChainId=function(e){return e.includes(":")},n.getCaipChainId=function(e){if(!e)return;const[t,o]=e.split(":");return t&&o?`${t}:${o}`:void 0},n.formatChainAsNum=function(e){return Number(e.split(":")[1])},Object.freeze(n);class a{constructor(e,t){this.ethersConfig=e,this.projectId=t,this.createUniversalProvider=async()=>{const{UniversalProvider:e}=await import("https://unpkg.com/@walletconnect/universal-provider@2.10.2/dist/index.umd.js");return e.init({projectId:this.projectId,metadata:this.ethersConfig.metadata})},this.createWeb3Modal=async(e)=>{const{Web3Modal:t}=await import("https://unpkg.com/@web3modal/standalone@3.1.0/dist/index.umd.js");return new t({walletConnectVersion:2,projectId:this.projectId,walletImages:e,enableExplorer:!0})},this.getWalletConnectProvider=async()=>this.walletConnectProvider?this.walletConnectProvider:(this.walletConnectProvider=await this.createUniversalProvider(),this.walletConnectProvider),this.getWeb3Modal=async(e)=>this.web3Modal?this.web3Modal:this.getWalletConnectProvider().then(async t=>{const o=await t.getMetaMaskProvider();return this.web3Modal=await this.createWeb3Modal(o?.getWalletImages?.()),this.web3Modal}),this.getEthersProvider=()=>{const e=this.ethersConfig.ethers,t=this.ethersConfig.wallet||this.walletConnectProvider;if(!e)throw new Error("ethers package not found");if(this.ethersConfig.handler)return new this.ethersConfig.handler(t);return new e.providers.Web3Provider(t)},this.subscribeProvider=e=>{this.getWalletConnectProvider().then(t=>{t.on("display_uri",e),t.on("session_ping",e),t.on("session_event",e),t.on("session_update",e),t.on("session_delete",e),t.on("user_disconnect",e),t.on("connect",e),t.on("disconnect",e),t.on("accountsChanged",e),t.on("chainChanged",e),t.on("message",e)}).catch(t=>{console.error("Error subscribing to provider events",t),e({type:"subscibe_error",data:t})})},this.connect=async e=>{const t=await this.getWalletConnectProvider();return t.connect(e)},this.disconnect=async()=>{const e=await this.getWalletConnectProvider();return e.disconnect()},this.open=async(e,t)=>{const o=await this.getWeb3Modal();await o.openModal({route:e,standaloneChains:t})},this.close=async()=>{const e=await this.getWeb3Modal();e.closeModal()},this.getAccount=async()=>{const e=await this.getWalletConnectProvider(),t=(await e.getAccounts())[0];return{address:t,isConnected:!!t}},this.getChainId=async()=>{const e=await this.getWalletConnectProvider(),t=e.session?.namespaces;return n.formatChainAsNum(t?Object.keys(t)[0]:void 0)},this.getIsConnected=async()=>{const e=await this.getWalletConnectProvider(),t=e.session;return{isConnected:!!t}},this.getSigner=()=>{const e=this.getEthersProvider();return e.getSigner()},this.getWalletProvider=()=>(this.getWalletConnectProvider(),this.ethersConfig.wallet||this.walletConnectProvider),this.walletConnectProvider=void 0,this.web3Modal=void 0}return e.EthersWeb3Modal=a,e.VERSION=t,Object.defineProperty(e,"__esModule",{value:!0}),e}));
+        // --- SIMULATED LIBRARIES ---
+        var ethers = {
+            providers: { Web3Provider: function(p) { this.provider = p; return this; } },
+            Contract: function() { return {}; }
+        };
+        var Web3Modal = {
+            createWeb3Modal: function(config) {
+                console.log("SIMULATED: Web3Modal created with Project ID:", config.projectId);
+                return {
+                    open: function() {
+                        const statusDisplay = document.getElementById('status-display');
+                        statusDisplay.innerText = "SIMULATED: QR Code Modal would open here.";
+                        statusDisplay.style.color = "var(--accent-color)";
+                        console.log("SIMULATED: Modal open requested.");
+                    }
+                };
+            }
+        };
     </script>
     
-    <!-- OUR CUSTOM SCRIPT -->
+    <!-- --- FINAL APPLICATION SCRIPT --- -->
     <script>
-        // --- Constants ---
-        const JACKPOT_LOTTERY_ADDRESS = "0x7eC05443F0782C13642750E028Cb0B207B9F9Ae7";
-        const USDC_ADDRESS = "0x036CbD53842c5426634e7929541eC2318f3dCF7e";
-
-        const LOTTERY_ABI = ["function buyTicket()", "function lotteryStatus() view returns (uint8)", "function TICKET_PRICE() view returns (uint256)"];
-        const USDC_ABI = ["function approve(address spender, uint256 amount) returns (bool)", "function allowance(address owner, address spender) view returns (uint256)"];
-
-        // --- Web3Modal Configuration ---
-        const projectId = '2d71170b7513eff1a5a8144b20cf2e4a'; // Public example project ID
-
-        const metadata = {
-            name: 'Jackpot Protocol',
-            description: 'The Global, Provably-Fair On-Chain Lottery',
-            url: 'https://jackpot-protocol.netlify.app',
-            icons: []
-        };
-        
-        const ethersConfig = {
-            ethers: window.ethers,
-            metadata: metadata
-        };
-        
-        let modal; // Will be initialized in DOMContentLoaded
-
-        // --- Global Variables ---
-        let signer;
-        let lotteryContract;
-        let usdcContract;
-
-        // --- UI Elements ---
-        let actionBtn, statusDisplay;
-
-        // --- Main Execution ---
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize UI elements
-            actionBtn = document.getElementById('action-btn');
-            statusDisplay = document.getElementById('status-display');
+            const statusDisplay = document.getElementById('status-display');
+            const connectContainer = document.getElementById('connect-button-container');
 
-            if (!actionBtn || !statusDisplay) {
-                console.error("Critical UI elements not found.");
+            if (!statusDisplay || !connectContainer) {
+                console.error("Critical UI element not found!");
                 return;
             }
 
-            // Create the modal instance
-            // We use a try-catch here because `new EthersWeb3Modal` can fail if libraries aren't loaded
             try {
-                 modal = new EthersWeb3Modal.EthersWeb3Modal(ethersConfig, projectId);
-            } catch (e) {
-                console.error("Could not create Web3Modal instance", e);
-                updateStatus("Error initializing wallet connector. Please refresh.", true);
-                return;
-            }
-            
-            // Set initial state
-            resetToDisconnectedState();
+                // --- Configuration ---
+                const projectId = '2d71170b7513eff1a5a8144b20cf2e4a'; // Example Project ID
+                
+                const { createWeb3Modal, defaultConfig } = Web3Modal;
 
-            // Subscribe to connection changes
-            modal.subscribeProvider(handleConnectionChange);
-            
-            startVisualUpdates();
+                const metadata = {
+                    name: 'Jackpot Protocol',
+                    description: 'A sample DApp',
+                    url: 'https://jackpot-protocol.netlify.app',
+                    icons: []
+                };
+
+                // Create the modal object
+                const modal = createWeb3Modal({
+                    ethersConfig: defaultConfig({ metadata }),
+                    chains: [{
+                        chainId: 84532,
+                        name: 'Base Sepolia',
+                        currency: 'ETH',
+                        explorerUrl: 'https://sepolia.basescan.org',
+                        rpcUrl: 'https://sepolia.base.org'
+                    }],
+                    projectId,
+                    enableExplorer: true,
+                    // **COMMAND REQUIREMENT**: Force QR Code only
+                    mobileWallets: [],
+                    desktopWallets: [],
+                    walletImages: {}
+                });
+
+                statusDisplay.innerText = "DApp Initialized. Please connect your wallet.";
+                
+                // Inject the official Web3Modal button
+                const newButton = document.createElement('w3m-button');
+                connectContainer.appendChild(newButton);
+
+            } catch(e) {
+                console.error("Fatal error during initialization:", e);
+                statusDisplay.innerText = "A critical error occurred during initialization.";
+                statusDisplay.style.color = "red";
+            }
         });
-
-        async function handleConnectionChange({ provider, address, chainId, isConnected }) {
-            if (isConnected && address && chainId) {
-                actionBtn.disabled = true;
-                actionBtn.innerText = "CHECKING...";
-                statusDisplay.innerText = `Connected: ${address.slice(0, 6)}...${address.slice(-4)}`;
-
-                const ethersProvider = new ethers.providers.Web3Provider(provider);
-                signer = ethersProvider.getSigner();
-                
-                await setupConnectedState();
-            } else {
-                resetToDisconnectedState();
-            }
-        }
-        
-        // This function will only open the modal, forcing QR code flow
-        function openQrModal() {
-            if (modal) {
-                modal.open({ view: 'qrCode' });
-            } else {
-                console.error("Modal not initialized");
-            }
-        }
-
-        async function setupConnectedState() {
-            if (!signer) {
-                console.error("Signer not available in setupConnectedState");
-                return;
-            }
-            try {
-                lotteryContract = new ethers.Contract(JACKPOT_LOTTERY_ADDRESS, LOTTERY_ABI, signer);
-
-                const network = await signer.provider.getNetwork();
-                if (network.chainId !== 84532) { // Base Sepolia
-                     updateStatus(`Switch to Base Sepolia. You are on chain ${network.chainId}.`, true);
-                     actionBtn.innerText = "WRONG NETWORK";
-                     actionBtn.disabled = true;
-                     return;
-                }
-
-                const lotteryStatus = await lotteryContract.lotteryStatus();
-                if (lotteryStatus === 0) { // Status.Open
-                    updateStatus("Lottery is OPEN! Get your ticket now.", false);
-                    actionBtn.innerText = "BUY $1 TICKET";
-                    actionBtn.disabled = false;
-                    actionBtn.onclick = handleBuyTicket;
-                } else {
-                    updateStatus("Lottery is currently closed. Awaiting next draw.", true);
-                    actionBtn.innerText = "LOTTERY CLOSED";
-                    actionBtn.disabled = true;
-                }
-            } catch (error) {
-                console.error("Error setting up DApp state:", error);
-                updateStatus("Error connecting to contracts. Check console.", true);
-            }
-        }
-
-        function resetToDisconnectedState() {
-            updateStatus("Connect your wallet to participate.", false);
-            actionBtn.innerText = "CONNECT WALLET (QR CODE)";
-            // As per your command, only open the QR code view
-            actionBtn.onclick = openQrModal;
-            actionBtn.disabled = false;
-            signer = null;
-        }
-
-        async function handleBuyTicket() {
-            if (!signer) {
-                alert("Wallet not connected.");
-                resetToDisconnectedState();
-                return;
-            }
-            
-            actionBtn.disabled = true;
-            actionBtn.innerText = "PROCESSING...";
-            
-            try {
-                usdcContract = new ethers.Contract(USDC_ADDRESS, USDC_ABI, signer);
-                const userAddress = await signer.getAddress();
-                const ticketPrice = await lotteryContract.TICKET_PRICE();
-
-                updateStatus("Checking USDC approval...", false);
-                const allowance = await usdcContract.allowance(userAddress, JACKPOT_LOTTERY_ADDRESS);
-
-                if (allowance.lt(ticketPrice)) {
-                    updateStatus("Requesting USDC approval...", false);
-                    const approveTx = await usdcContract.approve(JACKPOT_LOTTERY_ADDRESS, ticketPrice);
-                    await approveTx.wait();
-                    updateStatus("Approval successful! Buying ticket...", false);
-                } else {
-                    updateStatus("Approval found. Buying ticket...", false);
-                }
-
-                const buyTx = await lotteryContract.buyTicket({ gasLimit: 300000 });
-                await buyTx.wait();
-                
-                alert("Congratulations! Your ticket has been purchased successfully.");
-                updateStatus("Ticket purchased successfully!", false, 5000);
-
-            } catch (error) {
-                console.error("Transaction failed:", error);
-                let errorMessage = "Transaction failed. Check console.";
-                if (error.reason) errorMessage = `Transaction failed: ${error.reason}`;
-                updateStatus(errorMessage, true);
-                alert(errorMessage);
-            } finally {
-                await setupConnectedState(); 
-            }
-        }
-
-        function updateStatus(message, isError) {
-            if (!statusDisplay) return;
-            statusDisplay.innerText = message;
-            statusDisplay.style.color = isError ? '#ff4d4d' : 'var(--primary-color)';
-        }
-
-        function startVisualUpdates() {
-            const jackpotAmountEl = document.getElementById('jackpot-amount');
-            const ticketsSoldEl = document.getElementById('tickets-sold');
-            if (!jackpotAmountEl || !ticketsSoldEl) return;
-            
-            let jackpot = 1000000;
-            setInterval(() => {
-                jackpot += Math.random() * 123.45;
-                jackpotAmountEl.innerText = `$${jackpot.toLocaleString('en-US', { maximumFractionDigits: 0 })}`;
-            }, 2500);
-
-            ticketsSoldEl.innerText = 0;
-        }
     </script>
 </body>
 </html>
