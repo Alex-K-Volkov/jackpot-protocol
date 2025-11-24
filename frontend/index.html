@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JACKPOT PROTOCOL | REAL-TIME</title>
+    <title>JACKPOT PROTOCOL | ETH EDITION</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js" type="application/javascript"></script>
     <style>
@@ -26,7 +26,25 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            overflow: hidden; /* حذف اسکرول اضافه */
         }
+
+        /* --- افکت بارش پول --- */
+        .money-rain {
+            position: fixed;
+            top: -50px;
+            z-index: -1; /* پشت نوشته‌ها */
+            font-size: 24px;
+            animation: fall linear forwards; 
+            pointer-events: none; /* کلیک را خراب نکند */
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+        /* -------------------- */
 
         h1 {
             font-family: 'Orbitron', sans-serif;
@@ -35,6 +53,7 @@
             text-shadow: 0 0 10px var(--neon-blue);
             margin-bottom: 10px;
             letter-spacing: 2px;
+            z-index: 10;
         }
 
         .subtitle {
@@ -43,18 +62,21 @@
             margin-bottom: 30px;
             text-transform: uppercase;
             letter-spacing: 4px;
+            z-index: 10;
         }
 
         .jackpot-box {
-            background: rgba(20, 20, 20, 0.8);
+            background: rgba(10, 10, 10, 0.9); /* تیره‌تر برای خوانایی روی پول‌ها */
             border: 2px solid var(--neon-blue);
             padding: 30px 50px;
             border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
             margin-bottom: 40px;
             position: relative;
             overflow: hidden;
             min-width: 320px;
+            z-index: 10;
+            backdrop-filter: blur(5px);
         }
 
         .jackpot-label {
@@ -93,6 +115,7 @@
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
             transition: all 0.3s ease;
             text-transform: uppercase;
+            z-index: 10;
         }
 
         .action-button:hover {
@@ -112,6 +135,7 @@
             font-family: 'Courier New', monospace;
             color: var(--neon-green);
             min-height: 24px;
+            z-index: 10;
         }
 
         .footer-info {
@@ -120,6 +144,7 @@
             gap: 40px;
             color: #555;
             font-size: 0.8rem;
+            z-index: 10;
         }
 
         .footer-item h3 {
@@ -127,26 +152,10 @@
             margin: 5px 0 0 0;
             font-family: 'Orbitron', sans-serif;
         }
-        
-        .scanline {
-            width: 100%;
-            height: 100px;
-            z-index: -1;
-            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0, 255, 255, 0.05) 50%, rgba(0,0,0,0) 100%);
-            opacity: 0.1;
-            position: absolute;
-            bottom: 100%;
-            animation: scanline 8s linear infinite;
-        }
-
-        @keyframes scanline {
-            0% { bottom: 100%; }
-            100% { bottom: -100%; }
-        }
     </style>
 </head>
 <body>
-    <div class="scanline"></div>
+
     <header>
         <h1>JACKPOT PROTOCOL</h1>
         <div class="subtitle">Verifiable . On-Chain . Real-Time</div>
@@ -154,11 +163,12 @@
 
     <div class="jackpot-box">
         <div class="jackpot-label">LIVE PRIZE POOL (50%)</div>
-        <!-- مقدار اولیه در حال بارگذاری -->
+        <!-- مقدار اولیه -->
         <h2 id="jackpot-amount" class="jackpot-amount">Loading...</h2>
     </div>
 
     <button id="action-btn" class="action-button">ENTER DRAW</button>
+    
     <div id="status-display" class="status-box">Ready to connect...</div>
 
     <div class="footer-info">
@@ -175,6 +185,41 @@
             <h3 style="color: var(--neon-green);">LIVE STREAM</h3>
         </div>
     </div>
+
     <script src="script.js"></script>
+
+    <!-- اسکریپت مخصوص بارش پول -->
+    <script>
+        function createMoneyRain() {
+            const elements = ['💰', 'Ξ', '💎', '🪙', '💵'];
+            const container = document.body;
+            
+            const drop = document.createElement('div');
+            drop.classList.add('money-rain');
+            
+            // انتخاب رندوم ایموجی
+            drop.innerText = elements[Math.floor(Math.random() * elements.length)];
+            
+            // موقعیت افقی رندوم (چپ تا راست صفحه)
+            drop.style.left = Math.random() * 100 + 'vw';
+            
+            // سرعت رندوم (بین 2 تا 5 ثانیه)
+            const duration = Math.random() * 3 + 2;
+            drop.style.animationDuration = duration + 's';
+            
+            // اندازه رندوم
+            drop.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            
+            container.appendChild(drop);
+
+            // حذف المنت بعد از پایان انیمیشن برای جلوگیری از کند شدن
+            setTimeout(() => {
+                drop.remove();
+            }, duration * 1000);
+        }
+
+        // ساخت قطره جدید هر 200 میلی‌ثانیه (تراکم بارش)
+        setInterval(createMoneyRain, 200);
+    </script>
 </body>
 </html>
