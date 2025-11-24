@@ -1,100 +1,46 @@
+cat > index.html <<'EOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jackpot Protocol - Streamer Edition</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- بارگذاری کتابخانه Ethers.js برای ارتباط با متامسک -->
-    <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js" type="application/javascript"></script>
+    <!-- لینک اصلاح شده و پرسرعت کلودفلر -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js" type="application/javascript"></script>
     <style>
-        /* استایل‌های ساده برای نمایش بهتر */
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #121212;
-            color: #ffffff;
-            text-align: center;
-            padding-top: 50px;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            border: 2px solid #333;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #1e1e1e;
-        }
+        body { font-family: 'Courier New', monospace; background-color: #121212; color: #fff; text-align: center; padding-top: 50px; }
+        .container { max-width: 600px; margin: 0 auto; border: 2px solid #333; padding: 20px; border-radius: 10px; background-color: #1e1e1e; }
         h1 { color: #FFD700; }
-        .action-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            font-size: 16px;
-            margin: 20px 0;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            width: 100%;
-            font-weight: bold;
-        }
+        .action-button { background-color: #4CAF50; color: white; padding: 15px 32px; font-size: 16px; margin: 20px 0; cursor: pointer; border: none; border-radius: 5px; width: 100%; font-weight: bold; }
         .action-button:hover { background-color: #45a049; }
         .action-button:disabled { background-color: #555; cursor: not-allowed; }
-        .status-box {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: #aaa;
-            min-height: 20px;
-        }
-        .info-box {
-            border-top: 1px solid #333;
-            margin-top: 20px;
-            padding-top: 10px;
-            display: flex;
-            justify-content: space-around;
-        }
+        .status-box { margin-top: 10px; color: #aaa; font-size: 0.9rem; }
+        .info-box { border-top: 1px solid #333; margin-top: 20px; padding-top: 10px; display: flex; justify-content: space-around; }
     </style>
 </head>
 <body>
-
     <div class="container">
         <header>
             <h1>JACKPOT EVENT</h1>
             <p>LIVE DRAW BY STREAMER</p>
         </header>
-
         <main>
             <div style="margin: 30px 0;">
                 <p>JACKPOT PRIZE POOL</p>
-                <!-- این عدد بعداً توسط استریمر اعلام می‌شود -->
-                <h2 id="jackpot-amount">Loading...</h2>
+                <h2 id="jackpot-amount">$1,000+</h2>
             </div>
-
-            <!-- وضعیت اتصال و تراکنش -->
             <div id="status-display" class="status-box">Waiting for wallet connection...</div>
-            
-            <!-- دکمه اصلی خرید -->
             <button id="action-btn" class="action-button">CONNECT WALLET</button>
-            
-            <p style="font-size: 0.7rem; color: #666; margin-top: 20px;">
-                *Funds are sent directly to the event wallet for the manual draw.
-            </p>
+            <p style="font-size: 0.7rem; color: #666; margin-top: 20px;">*Funds sent directly to event wallet for manual draw.</p>
         </main>
-
         <footer>
             <div class="info-box">
-                <div>
-                    <p>TICKET PRICE</p>
-                    <h3>0.0005 ETH</h3>
-                </div>
-                <div>
-                    <p>STATUS</p>
-                    <h3>LIVE</h3>
-                </div>
+                <div><p>TICKET PRICE</p><h3>0.0005 ETH</h3></div>
+                <div><p>STATUS</p><h3>LIVE</h3></div>
             </div>
         </footer>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
+EOF
