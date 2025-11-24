@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JACKPOT PROTOCOL | ETH EDITION</title>
+    <title>JACKPOT PROTOCOL | REAL-TIME</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js" type="application/javascript"></script>
     <style>
@@ -54,7 +54,7 @@
             margin-bottom: 40px;
             position: relative;
             overflow: hidden;
-            min-width: 300px;
+            min-width: 320px;
         }
 
         .jackpot-label {
@@ -71,12 +71,12 @@
             color: #fff;
             text-shadow: 0 0 20px var(--neon-blue);
             margin: 0;
-            animation: pulse 1.5s infinite ease-in-out;
+            animation: pulse 2s infinite ease-in-out;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); text-shadow: 0 0 20px var(--neon-blue); }
-            50% { transform: scale(1.05); text-shadow: 0 0 40px var(--neon-blue), 0 0 15px #fff; }
+            50% { transform: scale(1.02); text-shadow: 0 0 30px var(--neon-blue); }
             100% { transform: scale(1); text-shadow: 0 0 20px var(--neon-blue); }
         }
 
@@ -146,40 +146,35 @@
     </style>
 </head>
 <body>
-
     <div class="scanline"></div>
-
     <header>
         <h1>JACKPOT PROTOCOL</h1>
-        <div class="subtitle">On-Chain . Transparency . ETH</div>
+        <div class="subtitle">Verifiable . On-Chain . Real-Time</div>
     </header>
 
     <div class="jackpot-box">
-        <div class="jackpot-label">CURRENT PRIZE POOL</div>
-        <!-- نماد Ξ یعنی اتریوم -->
-        <h2 id="jackpot-amount" class="jackpot-amount">Ξ 5.4200</h2>
+        <div class="jackpot-label">LIVE PRIZE POOL (50%)</div>
+        <!-- مقدار اولیه در حال بارگذاری -->
+        <h2 id="jackpot-amount" class="jackpot-amount">Loading...</h2>
     </div>
 
     <button id="action-btn" class="action-button">ENTER DRAW</button>
-    
     <div id="status-display" class="status-box">Ready to connect...</div>
 
     <div class="footer-info">
         <div class="footer-item">
             <p>TICKET PRICE</p>
-            <!-- قیمت جدید -->
             <h3>0.0004 ETH</h3>
         </div>
         <div class="footer-item">
-            <p>YOUR SHARE</p>
-            <h3>50% of POOL</h3>
+            <p>DATA SOURCE</p>
+            <h3>BLOCKCHAIN</h3>
         </div>
         <div class="footer-item">
             <p>DRAW TYPE</p>
             <h3 style="color: var(--neon-green);">LIVE STREAM</h3>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
